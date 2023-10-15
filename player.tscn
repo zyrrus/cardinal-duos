@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3u377onlwggq"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_fbur7"]
+[ext_resource type="PackedScene" uid="uid://c5sw7gnx0mirc" path="res://art/models/automatic_rifle.tscn" id="2_vs477"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_41vbt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_htkm4"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_of18g"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath("Head:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+properties/3/path = NodePath("Head/Camera3D:rotation")
+properties/3/spawn = true
+properties/3/sync = true
+properties/3/watch = false
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_fbur7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_41vbt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_htkm4")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39121, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="GunTransform" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(0.999391, -0.00304169, -0.0347667, 0, 0.996195, -0.0871557, 0.0348995, 0.0871026, 0.995588, 0.275477, -0.158395, -0.253)
+
+[node name="AutomaticRifle" parent="Head/Camera3D/GunTransform" instance=ExtResource("2_vs477")]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_of18g")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://nq0spnw7ae1i"]
+
+[ext_resource type="PackedScene" uid="uid://cmpm86eukq151" path="res://art/models/futuristic-city.blend" id="1_4a56l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o1b7e"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ras7p"]
+sky_material = SubResource("ProceduralSkyMaterial_o1b7e")
+
+[sub_resource type="Environment" id="Environment_axd6d"]
+background_mode = 2
+sky = SubResource("Sky_ras7p")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="FuturisticLevel" instance=ExtResource("1_4a56l")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_axd6d")
+
+[node name="Point_001" parent="." index="2"]
+light_energy = 1.0
+
+[node name="Point" parent="." index="24"]
+light_energy = 1.0
+
+[node name="Lamp" parent="." index="36"]
+light_color = Color(1, 1, 1, 1)

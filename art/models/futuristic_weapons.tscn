@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbax3xw4yh3w2"]
+
+[ext_resource type="PackedScene" uid="uid://d1hpeejfhpfi4" path="res://art/models/futuristic-weapons.blend" id="1_kbydg"]
+
+[node name="FuturisticWeapons" instance=ExtResource("1_kbydg")]
