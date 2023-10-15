@@ -42,7 +42,7 @@ func _on_join_button_pressed():
 func add_player(peer_id):
 	var player = Player.instantiate()
 	player.name = str(peer_id)
-	call_deferred("add_child", player)
+	add_child(player)
 	if player.is_multiplayer_authority():
 		player.health_changed.connect(update_health_bar)
 
