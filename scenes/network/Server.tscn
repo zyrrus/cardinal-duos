@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwoiw7y82wpq2"]
+
+[ext_resource type="Script" path="res://scenes/network/server.gd" id="1_obido"]
+[ext_resource type="PackedScene" uid="uid://ci60thiw2urpb" path="res://scenes/ui/StartServer.tscn" id="2_3nfo5"]
+
+[node name="Server" type="Node"]
+script = ExtResource("1_obido")
+
+[node name="StartServer" parent="." node_paths=PackedStringArray("Server") instance=ExtResource("2_3nfo5")]
+Server = NodePath("..")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3u377onlwggq"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_fbur7"]
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_fbur7"]
 [ext_resource type="PackedScene" uid="uid://c5sw7gnx0mirc" path="res://art/models/automatic_rifle.tscn" id="2_vs477"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_41vbt"]

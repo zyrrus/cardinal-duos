@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ce2sh8p8waari"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_lm25p"]
-[ext_resource type="PackedScene" uid="uid://nq0spnw7ae1i" path="res://levels/futuristic-level.tscn" id="2_r4fs0"]
+[ext_resource type="PackedScene" uid="uid://nq0spnw7ae1i" path="res://scenes/environments/futuristic-level.tscn" id="2_r4fs0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jpb81"]
 

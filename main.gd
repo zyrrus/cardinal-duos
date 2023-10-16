@@ -5,7 +5,7 @@ extends Node
 @onready var hud = $CanvasLayer/HUD
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 
-const Player = preload("res://player.tscn")
+var Player = preload("res://scenes/entities/player/Player.tscn")
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
@@ -63,14 +63,14 @@ func _on_multiplayer_spawner_spawned(node):
 
 
 func upnp_setup():
-	var upnp = UPNP.new()
+	var upnp := UPNP.new()
 	
 	var discover_result = upnp.discover()
 	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
 			"UPNP Discover Failed! Error %s" % discover_result)
+	print("DISCOVER", discover_result)
 	
 	var gateway = upnp.get_gateway()
-	print(gateway.is_valid_gateway())
 	assert(gateway and gateway.is_valid_gateway(), \
 			"UPNP Invalid Gateway!")
 	

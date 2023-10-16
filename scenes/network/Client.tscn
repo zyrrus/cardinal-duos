@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://byqt5x03prnbv"]
+
+[ext_resource type="Script" path="res://scenes/network/client.gd" id="1_kvimg"]
+[ext_resource type="PackedScene" uid="uid://dgnde8rtk5886" path="res://scenes/ui/JoinServer.tscn" id="2_tr8in"]
+
+[node name="Client" type="Node"]
+script = ExtResource("1_kvimg")
+
+[node name="JoinServer" parent="." node_paths=PackedStringArray("Client") instance=ExtResource("2_tr8in")]
+Client = NodePath("..")
